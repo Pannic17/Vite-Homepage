@@ -149,6 +149,8 @@ tests/               单元测试与浏览器测试
 
 详细说明见 [内容与语言维护](docs/Phase1/content.md)。
 
+当前界面颜色、局部覆盖及交互配色约定见 [界面配色](docs/design-colors.md)。
+
 ## 常用检查
 
 ```sh

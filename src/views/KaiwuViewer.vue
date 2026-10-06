@@ -1,7 +1,7 @@
 <script setup>
 import {onMounted,onBeforeUnmount,ref,watch} from 'vue';
 import {useRoute} from 'vue-router';
-import LanguageSwitch from '../components/LanguageSwitch.vue';
+import SiteLayout from '../layouts/SiteLayout.vue';
 import {loadConfig} from '../features/kaiwu/config';
 import {errorKey,failure} from '../features/kaiwu/errors';
 import '../features/kaiwu/kaiwu.css';
@@ -34,16 +34,17 @@ onMounted(start);watch(()=>route.fullPath,()=>{if(container.value)start();});
 onBeforeUnmount(()=>{generation++;clearTimeout(timer);abort?.abort();scene?.dispose();});
 </script>
 <template>
-  <main id="main-content" class="kaiwu-page" tabindex="-1">
-    <nav class="kaiwu-nav" :aria-label="$t('accessibility.navigation')">
-      <RouterLink to="/">{{ $t('kaiwuViewer.home') }}</RouterLink>
-      <RouterLink to="/projects">{{ $t('kaiwuViewer.projects') }}</RouterLink>
-      <RouterLink :to="{name:'KaiwuHome'}">{{ $t('kaiwuViewer.configure') }}</RouterLink><LanguageSwitch />
-    </nav>
-    <h1>{{ $t('kaiwuViewer.title') }}</h1>
-    <div ref="container" class="kaiwu-stage" :data-state="status" :aria-busy="status==='loading'" :style="background ? {backgroundImage:'url('+JSON.stringify(background)+')'} : {}" />
-    <p v-if="status==='loading'" class="kaiwu-status" role="status">{{ $t('kaiwuViewer.loading') }}</p>
-    <div v-if="status==='failed'" class="kaiwu-status" role="alert"><p>{{ $t(error) }}</p><button @click="start">{{ $t('kaiwuViewer.retry') }}</button><RouterLink :to="{name:'KaiwuHome'}">{{ $t('kaiwuViewer.configure') }}</RouterLink></div>
-    <div class="kaiwu-controls"><button :disabled="status!=='ready'" :aria-pressed="playing" @click="toggle">{{ $t(playing?'kaiwuViewer.pause':'kaiwuViewer.play') }}</button><button :disabled="status!=='ready'" @click="scene?.reset()">{{ $t('kaiwuViewer.reset') }}</button></div>
-  </main>
+  <SiteLayout :title="$t('kaiwuViewer.title')" back-to="/projects/kaiwu">
+    <template #subtitle>KaiwuArt</template>
+    <div class="kaiwu-page content-stack">
+      <nav class="kaiwu-nav" :aria-label="$t('accessibility.navigation')">
+        <RouterLink to="/projects">{{ $t('kaiwuViewer.projects') }}</RouterLink>
+        <RouterLink :to="{name:'KaiwuHome'}">{{ $t('kaiwuViewer.configure') }}</RouterLink>
+      </nav>
+      <div ref="container" class="kaiwu-stage" :data-state="status" :aria-busy="status==='loading'" :style="background ? {backgroundImage:'url('+JSON.stringify(background)+')'} : {}" />
+      <p v-if="status==='loading'" class="kaiwu-status" role="status">{{ $t('kaiwuViewer.loading') }}</p>
+      <div v-if="status==='failed'" class="kaiwu-status" role="alert"><p>{{ $t(error) }}</p><button @click="start">{{ $t('kaiwuViewer.retry') }}</button><RouterLink :to="{name:'KaiwuHome'}">{{ $t('kaiwuViewer.configure') }}</RouterLink></div>
+      <div class="kaiwu-controls"><button :disabled="status!=='ready'" :aria-pressed="playing" @click="toggle">{{ $t(playing?'kaiwuViewer.pause':'kaiwuViewer.play') }}</button><button :disabled="status!=='ready'" @click="scene?.reset()">{{ $t('kaiwuViewer.reset') }}</button></div>
+    </div>
+  </SiteLayout>
 </template>

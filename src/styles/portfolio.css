@@ -1,14 +1,10 @@
-/* Original portfolio art direction, isolated from Home/About/detail pages. */
-.portfolio-layout {
+/* The shared page frame leaves each portfolio item's original art direction intact. */
+.portfolio-layout :is(.project-card, .kaiwu) {
   --context-color: #aaa;
   --hover-color: #54a296;
-  width: 90%;
-  max-width: none;
-  padding: 0 0 2vh;
   line-height: 1.2;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
-.portfolio-layout .site-header { margin-bottom: 0; }
 .portfolio-brand { color: var(--hover-color); }
 .corner-frame { position: relative; }
 .corner-frame::before, .corner-frame::after {

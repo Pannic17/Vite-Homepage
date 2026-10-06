@@ -57,7 +57,7 @@ test('20 route round trips release render contexts, frames and page listeners', 
   const samples = [first];
   for (let cycle = 1; cycle <= 20; cycle++) {
     // Start postprocessing as well as the base pass, then tear down mid-effect.
-    await page.locator('#h-title').dblclick();
+    await page.getByRole('heading', {name: 'PANNIC', exact: true}).dblclick();
     await page.getByRole('link', { name: 'WORKS', exact: true }).click();
     await expect(page).toHaveURL(/\/works$/);
     await expect.poll(async () => (await snapshot(page)).lost).toBe(cycle);

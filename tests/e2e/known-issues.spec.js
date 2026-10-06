@@ -19,14 +19,14 @@ test('B02: selected language survives refresh', async ({ page }) => {
   await page.getByRole('button', { name: '中文', exact: true }).click();
   await expect(page.getByRole('link', { name: '作品', exact: true })).toBeVisible();
   await page.reload();
-  await expect(page.locator('#h-title')).toBeVisible();
+  await expect(page.getByRole('heading', {name: 'PANNIC', exact: true})).toBeVisible();
   expect(await page.getByRole('link', { name: '作品', exact: true }).count()).toBe(1);
 });
 
 test('B03: GCS direct URL renders a detail view rather than the works listing', async ({ page }) => {
   await page.goto('works/gcs');
   await expect(page.locator('#app')).not.toBeEmpty();
-  expect(await page.locator('.d-header').count()).toBe(1);
+  expect(await page.locator('.site-header').count()).toBe(1);
   await expect(page.getByRole('heading', { name: 'Chronoscape', exact: true })).toBeVisible();
   await expect.poll(() => page.locator('.gcs-cover').evaluate(image => image.complete && image.naturalWidth > 0)).toBe(true);
 });

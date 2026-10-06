@@ -1,13 +1,14 @@
-.kaiwu-page { max-width: 72rem; margin: auto; padding: 2rem max(1rem, 4vw); }
-.kaiwu-nav, .kaiwu-controls { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-block:1rem; }
-.kaiwu-page h1 { margin-block:1.5rem; }
-.kaiwu-page button, .kaiwu-page input { font:inherit; min-height:44px; padding:.6rem; }
+.kaiwu-page { min-width: 0; }
+.kaiwu-nav, .kaiwu-controls { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; align-items:center; }
+.kaiwu-nav a { display: inline-flex; align-items: center; min-height: 44px; }
+.kaiwu-page button, .kaiwu-page input { font:inherit; min-height:44px; padding:.5rem .75rem; border:1px solid var(--border-color); background:transparent; color:var(--title-color); border-radius:0; }
 .kaiwu-page button { cursor:pointer; }
+.kaiwu-page button:disabled { opacity:.5; cursor:default; }
 .kaiwu-page a { color:var(--hover-color); }
-.kaiwu-form { display:grid; gap:.6rem; margin-block:2rem; }
+.kaiwu-form { display:grid; gap:.75rem; width:100%; max-width:var(--reading-width); margin-block:0; }
 .kaiwu-form input { width:100%; min-width:0; box-sizing:border-box; }
 .kaiwu-form button { justify-self:start; }
-.kaiwu-stage { height: min(65vh, 44rem); min-height:20rem; position:relative; background:#171717 center / cover; }
+.kaiwu-stage { height: clamp(20rem, 60vh, 44rem); min-width:0; position:relative; background:#171717 center / cover; border:1px solid var(--border-color); }
 .kaiwu-stage canvas { display:block; max-width:100%; touch-action:none; }
 .kaiwu-stage .kaiwu-debug { position:absolute; top:.5rem; right:.5rem; max-width:calc(100% - 1rem); max-height:calc(100% - 1rem); overflow-y:auto; overscroll-behavior:contain; z-index:1; }
 .kaiwu-debug button, .kaiwu-debug input { min-height:0; padding:0; }

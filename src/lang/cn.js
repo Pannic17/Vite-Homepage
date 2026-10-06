@@ -98,7 +98,8 @@ export default {
     "december2024": "2024年12月"
   },
   "kaiwu": {
-    "details": "查看详情",
+    "siteLabel": "KAIWUART.CN：进入开物页面",
+    "previewLabel": "PREVIEW：预览开物 3D 示例",
     "title": "开物 KaiwuArt",
     "poster": "开物宣传海报 {number}",
     "intro": "开物是面向中国 3D 数字艺术品市场的 NFT 交易平台，关注 3D 数字艺术品在元宇宙、游戏、流行文化、收藏和 CG 行业中的应用。",
@@ -108,7 +109,7 @@ export default {
       "app": "移动应用",
       "websites": "网站",
       "backend": "云服务与后端",
-      "chain": "NFT 与至信链"
+      "chain": "NFT 与区块链"
     }
   }
 };

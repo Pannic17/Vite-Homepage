@@ -4,7 +4,20 @@ test('Kaiwu links stay internal and the bilingual detail-to-viewer flow works',a
   for(const language of ['ENGLISH','中文']){
     await page.goto('projects');await page.getByRole('button',{name:language,exact:true}).click();
     await expect(page.locator('.kaiwu-links a')).toHaveCount(0);
-    await expect(page.locator('.kaiwu-links .k-label')).toHaveCount(5);
+    await expect(page.locator('.k-heading .kaiwu-links .k-label')).toHaveCount(3);
+    await expect(page.locator('.kaiwu-links .k-label')).toHaveText(language==='中文'?['3D 查看器','移动应用','NFT 与区块链']:['3D Viewer','Mobile APP','NFT & Chain']);
+    await expect(page.locator('.k-brand-link')).toHaveText('KAIWUART.CN');
+    await expect(page.locator('.k-brand-link')).toHaveAttribute('href','/Vite-Homepage-24/projects/kaiwu');
+    await page.locator('.kaiwu img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
+    await page.screenshot({path:testInfo.outputPath(language==='中文'?'kaiwu-heading-cn.png':'kaiwu-heading-en.png')});
+    await page.locator('.k-brand-link').focus();
+    await page.keyboard.press('Tab');
+    await expect(page.locator('.k-detail')).toBeFocused();
+    expect(await page.locator('.k-detail').evaluate(el=>getComputedStyle(el).textDecorationLine)).toContain('underline');
+    await page.locator('.k-brand-link').click();
+    await expect(page).toHaveURL(/\/projects\/kaiwu$/);
+    await page.getByRole('link',{name:language==='中文'?'返回项目':'Back to Projects',exact:true}).click();
+    await expect(page.locator('.k-detail')).toContainText('PREVIEW');
     await page.locator('.k-detail').click();
     await expect(page).toHaveURL(/\/projects\/kaiwu\/viewer\?debug=1$/);
     await expect(page.locator('.kaiwu-debug')).toBeVisible();

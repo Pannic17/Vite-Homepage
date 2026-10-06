@@ -1,17 +1,17 @@
 <script setup>
 import SubRight from '../SubRight.vue';
-defineProps({ title: String, backTo: String });
+defineProps({ title: String, backTo: String, showHome: {type: Boolean, default: true} });
 </script>
 <template>
   <header class="site-header">
     <div class="site-heading"><h1>{{ title }}</h1><p class="subtitle"><slot /></p></div>
-    <SubRight :back-to="backTo" />
+    <SubRight :back-to="backTo" :show-home="showHome" />
   </header>
 </template>
 <style scoped>
 .site-header {
-  --header-unit: 1vw;
-  --header-nav-size: clamp(1.125rem, 1.25vw, 1.5rem);
+  --header-unit: clamp(.5rem, 1vw, .8rem);
+  --header-nav-size: var(--text-navigation);
   display: grid;
   grid-template-columns: minmax(0, 1fr) max-content;
   grid-template-rows: auto auto;
@@ -21,7 +21,7 @@ defineProps({ title: String, backTo: String });
   position: sticky;
   top: 0;
   z-index: 2;
-  padding-block: calc(var(--header-unit) * 2.5) var(--header-unit);
+  padding-block: var(--space-header-top) var(--space-header-bottom);
   margin-bottom: var(--space-section);
   border-bottom: 1px solid var(--context-color);
   background: var(--background-color);
@@ -32,7 +32,7 @@ defineProps({ title: String, backTo: String });
 .site-heading h1 {
   grid-area: 1 / 1;
   min-width: 0;
-  font-size: clamp(1.875rem, 5vw, 7rem);
+  font-size: var(--text-display);
   line-height: 1.15;
 }
 .subtitle {
@@ -40,7 +40,7 @@ defineProps({ title: String, backTo: String });
   align-self: end;
   min-width: 0;
   margin: 0;
-  font-size: clamp(1rem, 1.25vw, 1.5rem);
+  font-size: var(--text-subtitle);
   line-height: 1.4;
   text-wrap: pretty;
 }
@@ -62,13 +62,14 @@ defineProps({ title: String, backTo: String });
   padding: 0;
   border: 0;
   color: var(--context-color);
-  min-height: 0;
+  min-height: 44px;
+  min-width: 44px;
+  align-items: end;
   line-height: 1.4;
   position: relative;
   white-space: nowrap;
   overflow-wrap: normal;
 }
-.site-header :deep(.header-links > a::after), .site-header :deep(.header-links > button::after) { content: ''; position: absolute; inset: 0; min-height: 44px; bottom: auto; }
 .site-header :deep(.header-home) { display: inline-grid; width: max-content; min-width: 4.5rem; flex: 0 0 auto; justify-content: end; }
 .site-header :deep(.language-switch button) { display: inline-flex; align-items: flex-start; justify-content: center; line-height: inherit; padding: 0; color: var(--context-color); }
 .site-header :deep(.language-switch button:last-child) { justify-content: flex-end; }

@@ -2,7 +2,7 @@
 import LanguageSwitch from './LanguageSwitch.vue';
 import {useRouter} from 'vue-router';
 import {backOrFallback} from '../utils/navigation';
-defineProps({backTo: String});
+defineProps({backTo: String, showHome: {type: Boolean, default: true}});
 const router=useRouter();
 </script>
 <template>
@@ -10,7 +10,7 @@ const router=useRouter();
     <LanguageSwitch />
     <div class="header-links">
       <button v-if="backTo" class="text-link" type="button" @click="backOrFallback(router, backTo)">{{ $t('menu.back') }}</button>
-      <RouterLink class="text-link header-home" to="/"><span class="home-width" aria-hidden="true">首页</span><span class="home-width" aria-hidden="true">HOME</span><span class="home-label">{{ $t('menu.main') }}</span></RouterLink>
+      <RouterLink v-if="showHome" class="text-link header-home" to="/"><span class="home-width" aria-hidden="true">首页</span><span class="home-width" aria-hidden="true">HOME</span><span class="home-label">{{ $t('menu.main') }}</span></RouterLink>
     </div>
   </nav>
 </template>

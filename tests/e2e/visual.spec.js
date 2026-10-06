@@ -8,11 +8,11 @@ test.use({reducedMotion:'reduce'});
 // ship the same CJK fallback fonts as a Chinese-language Windows installation.
 const locale='en-US';
 for(const route of ['./','works','projects']) {
-  test(`original ${route} composition in ${locale}`,async ({page})=>{
+  test(`shared ${route} composition in ${locale}`,async ({page})=>{
     await page.addInitScript(value=>localStorage.setItem('locale',value),locale);
     await page.goto(route);
     await page.locator('h1').waitFor();
-    await page.addStyleTag({content:'body, .home, .portfolio-layout { font-family: Arial, sans-serif !important; }'});
+    await page.addStyleTag({content:'body, .home, .portfolio-layout, .project-card, .kaiwu { font-family: Arial, sans-serif !important; }'});
     await page.evaluate(()=>document.fonts.ready);
     await page.locator('img').evaluateAll(images=>images.forEach(image=>{image.loading='eager';}));
     await page.locator('img').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));

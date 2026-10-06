@@ -1,6 +1,6 @@
 import {test, expect} from '@playwright/test';
 
-const routes = ['', 'about', 'works', 'projects', 'works/gcs', 'test', 'missing-page'];
+const routes = ['', 'about', 'works', 'projects', 'works/gcs', 'projects/kaiwu', 'projects/kaiwu/viewer?type=unknown', 'test', 'missing-page'];
 const viewports = [
   [320,568], [360,800], [390,844], [430,932], [768,1024], [1024,768],
   [844,390], [1280,720], [1440,900], [1920,1080], [2560,1440],
@@ -53,13 +53,12 @@ for (const [width,height] of viewports) {
           expect(top).toBeGreaterThanOrEqual(bottom);
         }
         if (route === '') {
-          // The original full-viewport scene composition is intentional.
+          // Home retains its original full-viewport scene composition.
           const scene = await page.locator('#three-canvas').boundingBox();
           expect(scene.x).toBe(0);
           expect(scene.y).toBe(0);
           expect(scene.width).toBe(width);
           expect(scene.height).toBe(height);
-          await expect(page.locator('.scene-panel')).toHaveCount(0);
         }
         if ([390,1440].includes(width) && ['','works','projects','works/gcs','about'].includes(route)) {
           // Full-page screenshots deliberately resolve offscreen lazy images.

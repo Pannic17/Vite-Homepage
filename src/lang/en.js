@@ -98,17 +98,18 @@ export default {
     "december2024": "December 2024"
   },
   "kaiwu": {
-    "details": "Click For Details",
+    "siteLabel": "KAIWUART.CN: Open the Kaiwu page",
+    "previewLabel": "PREVIEW: Open the Kaiwu 3D example",
     "title": "开物KaiwuArt",
     "poster": "Kaiwu promotional poster {number}",
     "intro": "Kaiwu is an NFT trading platform in China focusing on the 3D digital artwork market and its applications in the metaverse, games, popular culture, collections and CG industries.",
     "role": "As KaiwuArt’s technical lead and lead developer, I owned the overall technical architecture and core development, coordinating implementation across Android/iOS apps, a WeChat mini-program, the official website, cloud services, and databases. I also led development of 3D rendering and crypto token issuance and trading features, working closely with developers and designers to launch the product and support subsequent events.",
     "links": {
       "viewer": "3D Viewer",
-      "app": "Mobile App",
+      "app": "Mobile APP",
       "websites": "Websites",
       "backend": "Cloud & Backend",
-      "chain": "NFT & Zhixin Chain"
+      "chain": "NFT & Chain"
     }
   }
 };
