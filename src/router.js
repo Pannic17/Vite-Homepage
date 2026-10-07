@@ -15,6 +15,7 @@ const routes = [
   {path:pagePaths.projects,name:'Projects',component:Projects,meta:{titleKey:'menu.projects'}},
   {path:pagePaths.kaiwu,name:'KaiwuHome',component:()=>import('./views/KaiwuHome.vue'),meta:{titleKey:'kaiwuViewer.title'}},
   {path:pagePaths.kaiwuViewer,name:'KaiwuViewer',component:()=>import('./views/KaiwuViewer.vue'),meta:{titleKey:'kaiwuViewer.title'}},
+  {path:pagePaths.kaiwuDetails,name:'KaiwuDetails',component:()=>import('./views/KaiwuDetails.vue'),meta:{parent:pagePaths.projects,titleKey:'kaiwu.title'}},
   ...detailEntries.map(entry => ({
     path:entry.detail.path, name:entry.id, component:ProjectDetail, props:{id:entry.id},
     meta:{parent:entry.detail.parent,titleKey:entry.titleKey},

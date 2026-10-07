@@ -17,6 +17,8 @@ import {kaiwu} from '../content/portfolio';
       <RouterLink class="k-action k-brand-link" :to="kaiwu.destination.to" :aria-label="$t('kaiwu.siteLabel')">KAIWUART.CN</RouterLink>
       <span class="k-action-separator" aria-hidden="true">|</span>
       <RouterLink class="k-action k-detail" :to="{name:'KaiwuViewer',query:{debug:'1'}}" :aria-label="$t('kaiwu.previewLabel')">PREVIEW</RouterLink>
+      <span class="k-action-separator" aria-hidden="true">|</span>
+      <RouterLink class="k-action k-details" :to="{name:'KaiwuDetails'}">DETAILS</RouterLink>
     </div>
     <div class="posters">
       <ResponsiveImage v-for="poster in kaiwu.posters" :key="poster.number" :src="poster.src" :alt="$t('kaiwu.poster', {number:poster.number})" sizes="22.5vw" loading="eager" />

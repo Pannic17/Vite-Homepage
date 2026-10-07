@@ -109,6 +109,50 @@ export default {
     "winter2023": "Winter 2023",
     "december2024": "December 2024"
   },
+  "kaiwuDetail": {
+    "subtitle": "Co-founder · Technical lead · Lead developer",
+    "headline": "Bringing 3D art into everyday viewing and collecting",
+    "overview": "KaiwuArt is a platform for collecting and trading 3D digital artworks in China. It brings together artwork presentation, discovery, purchasing and collecting, exploring how 3D art can connect with games, popular culture and digital collections through mobile and browser experiences.",
+    "role": "As co-founder, technical lead and lead developer, I owned technical planning and core product development, coordinating mobile apps, a WeChat mini-program, web presentation and business services. I worked with designers and developers to turn artwork and trading needs into a usable product, and supported releases and operations after launch.",
+    "preview": "Explore the 3D viewing experience",
+    "posters": "Kaiwu promotional visuals, bringing together the brand and its focus on 3D digital art.",
+    "scope": {
+      "experience": {"title": "Artwork experience", "text": "3D viewing, playback controls and presentation tools"},
+      "access": {"title": "Multiple entry points", "text": "Android / iOS apps, WeChat mini-program and mobile web"},
+      "journey": {"title": "Collecting journey", "text": "Browsing, accounts, collections, orders and payments"},
+      "operations": {"title": "Releases & operations", "text": "Series and artwork releases, gifting and management tools"}
+    },
+    "chapters": {
+      "viewing": {
+        "title": "From images to a 3D experience",
+        "lead": "I led development of the 3D artwork viewer, allowing users to view models, control playback and reset the presentation. This extended the experience beyond static images into an interactive way of viewing artworks.",
+        "body": "I also developed preview and presentation tools for preparing works before release. These let the team adjust viewing angles, lighting and visual treatment, then save and reuse presentation settings. The work supported both the viewing experience and content preparation, giving individual artworks an appropriate presentation."
+      },
+      "clients": {
+        "title": "Connecting multiple entry points",
+        "lead": "I coordinated development across Android and iOS apps, a WeChat mini-program and mobile web, giving users different ways to browse artworks and series, explore details, and access their accounts and collections.",
+        "body": "Across the different client implementations, I contributed to home pages, search, artwork details, profiles, collections, orders, payments, gifting and sharing. My responsibilities included developing core pages and interactions, as well as coordinating clients with business services so that viewing an artwork could lead into further actions."
+      },
+      "services": {
+        "title": "Connecting browsing, collecting and purchasing",
+        "lead": "I developed and coordinated core business capabilities, bringing artwork and series information, sign-in, profiles, likes, collections, orders and payments into connected product journeys.",
+        "body": "This work supported the actions behind the pages: following artworks of interest, checking collection and purchase status, and accessing related account records. I coordinated the connections between clients and business services so the product could support ongoing use alongside its visual presentation."
+      },
+      "issuance": {
+        "title": "Supporting artwork preparation and release",
+        "lead": "I led development of digital collectible issuance and trading features, covering user address registration, series and individual artwork releases, transaction queries, price updates and gifting operations.",
+        "body": "For releasing a collection, I built tools that supported series preparation, artwork material uploads and individual releases, with records at each stage for team checks and later review. Alongside the user-facing product, I provided support for routine releases, gifting campaigns and business management."
+      },
+      "delivery": {
+        "title": "Working with the team to launch the product",
+        "lead": "As technical lead, my responsibilities spanned artwork presentation, client experiences, business journeys and release tools. I coordinated dependencies across these areas and worked with designers and developers to bring the product to launch.",
+        "body": "My contribution continued into operations, supporting artwork releases and events with product features and operational tools. Kaiwu was a progression from individual feature development to delivering a complete product, requiring attention to both how users experience artworks and how the team maintains and operates the platform."
+      }
+    },
+    "contributionLabel": "MY CONTRIBUTION",
+    "contributionTitle": "From artwork presentation to product operations",
+    "contribution": "At Kaiwu, I combined the roles of co-founder, technical lead and lead developer. I directly developed 3D viewing and core product features, while coordinating multiple user entry points and business capabilities to connect artwork presentation, collecting, trading and release operations. The project reflects my work with a team to turn a creative idea into a product for real users."
+  },
   "kaiwu": {
     "siteLabel": "KAIWUART.CN: Open the Kaiwu page",
     "previewLabel": "PREVIEW: Open the Kaiwu 3D example",

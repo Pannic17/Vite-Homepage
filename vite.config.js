@@ -33,7 +33,7 @@ function staticEntries() {
         ];
         return shell.replace('</head>', hints.join('\n    ') + '\n  </head>');
       };
-      const views = {'/':'Home','/about':'About','/works':'Works','/projects':'Projects','/projects/kaiwu':'KaiwuHome','/projects/kaiwu/viewer':'KaiwuViewer'};
+      const views = {'/':'Home','/about':'About','/works':'Works','/projects':'Projects','/projects/kaiwu':'KaiwuHome','/projects/kaiwu/viewer':'KaiwuViewer','/projects/kaiwu/details':'KaiwuDetails'};
       for (const path of productionPaths.filter(path => path !== '/')) {
         this.emitFile({ type: 'asset', fileName: path.slice(1) + '/index.html', source: pageShell(views[path] || 'ProjectDetail') });
       }
