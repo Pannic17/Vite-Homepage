@@ -170,6 +170,12 @@ export const portfolio = [
     }
   },
   {
+    id: 'three-lab', collection: 'works', cover: 'image/ThreeLab-Cover.jpg',
+    titleKey: 'lab.title', introKey: 'lab.intro', categoryKey: 'lab.category',
+    tags: ['Three.js', 'WebGL', 'Creative Coding'], dateKey: 'lab.date',
+    destination: {kind:'internal', to:'/works/three-lab'},
+  },
+  {
     "id": "anybody-problem",
     "collection": "works",
     "cover": "image/ABP-Cover.png",

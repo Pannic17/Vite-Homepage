@@ -62,8 +62,18 @@ try {
         await page.locator('img').evaluateAll(images => images.forEach(image => { image.loading = 'eager'; }));
         await page.waitForFunction(() => [...document.images].every(image => image.complete && image.naturalWidth > 0));
         if (route === '/works/gcs') {
-          assert.equal(await page.locator('.d-header h1').textContent(), 'Chronoscape');
+          assert.equal(await page.locator('.site-header h1').textContent(), 'Chronoscape');
           if (base !== '/') await page.screenshot({ path: join(output, 'gcs-desktop.png'), fullPage: true });
+        }
+        if (route.startsWith('/works/three-lab')) {
+          assert(preloadUrls.some(url => url.includes('/assets/ThreeLab-')), 'Lab entry must preload its page');
+          assert(!preloadUrls.some(url => url.includes('/assets/runtime-')), 'Lab renderer must remain dynamic');
+          await page.waitForFunction(() => document.querySelector('.lab-stage')?.dataset.state === 'ready');
+          if (route === '/works/three-lab') {
+            const reload = await page.reload({waitUntil:'networkidle'});
+            assert.equal(reload.status(), 200);
+            await page.waitForFunction(() => document.querySelector('.lab-stage')?.dataset.state === 'ready');
+          }
         }
         if (route === '/projects/kaiwu' || route === '/projects/kaiwu/viewer') {
           const view=route.endsWith('/viewer')?'KaiwuViewer':'KaiwuHome';

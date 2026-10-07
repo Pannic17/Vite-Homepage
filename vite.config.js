@@ -35,7 +35,7 @@ function staticEntries() {
       };
       const views = {'/':'Home','/about':'About','/works':'Works','/projects':'Projects','/projects/kaiwu':'KaiwuHome','/projects/kaiwu/viewer':'KaiwuViewer','/projects/kaiwu/details':'KaiwuDetails'};
       for (const path of productionPaths.filter(path => path !== '/')) {
-        this.emitFile({ type: 'asset', fileName: path.slice(1) + '/index.html', source: pageShell(views[path] || 'ProjectDetail') });
+        this.emitFile({ type: 'asset', fileName: path.slice(1) + '/index.html', source: pageShell((path.startsWith('/works/three-lab') ? 'ThreeLab' : views[path]) || 'ProjectDetail') });
       }
       index.source = pageShell('Home');
       this.emitFile({ type: 'asset', fileName: '404.html', source: pageShell('NotFound') });
@@ -46,5 +46,6 @@ function staticEntries() {
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue(), staticEntries()],
+  server: {watch: {ignored:['**/*.local/**','**/.baseline-dist/**','**/test-results/**','**/playwright-report/**']}},
   base: process.env.VITE_BASE_PATH || '/Vite-Homepage-24/'
 })

@@ -12,7 +12,7 @@ const resolveKey = (messages,key) => key.split('.').reduce((value,part) => value
 const flatten = (object,prefix='') => Object.entries(object).flatMap(([key,value]) => typeof value === 'object' ? flatten(value,prefix + key + '.') : [prefix + key]);
 
 test('catalog IDs, navigation, local assets and translations form a valid content contract', () => {
-  assert.equal(works.length,8);
+  assert.equal(works.length,9);
   assert.equal(projects.length,6);
   assert.equal(new Set(portfolio.map(entry => entry.id)).size,portfolio.length);
   assert.equal(new Set(productionPaths).size,productionPaths.length);

@@ -1,4 +1,58 @@
 export default {
+  "lab": {
+  "backWorks": "Back to Works",
+  "title": "Three.js Visual Experiments",
+  "subtitle": "Nine studies in particles, light and real-time rendering",
+  "intro": "From models and particles to smoke, galaxies and dynamic reflections: nine interactive Three.js studies in the browser.",
+  "category": "Creative Coding",
+  "date": "2022",
+  "choose": "Choose an experiment",
+  "loading": "Loading the scene…",
+  "error": "The scene could not load. Please retry and check that WebGL is available.",
+  "retry": "Retry",
+  "pause": "Pause",
+  "play": "Play",
+  "watch": "Animated scene · use Pause to hold the frame",
+  "orbit": "Drag to orbit · scroll or pinch to zoom",
+  "experiments": {
+    "e1": {
+      "title": "Eevee model",
+      "description": "A glTF Eevee model exploring materials, lighting and rotation."
+    },
+    "e2": {
+      "title": "Particle Eevee",
+      "description": "Eevee’s vertices become luminous particles, layered with a particle sphere and scattered stars."
+    },
+    "e3": {
+      "title": "Dots & RGB shift",
+      "description": "Rotating low-poly geometry processed with a dot-screen pattern and RGB channel separation."
+    },
+    "e4": {
+      "title": "Smoke portal",
+      "description": "Transparent smoke planes spiral around the center under blue lighting."
+    },
+    "e5": {
+      "title": "Rain & lightning",
+      "description": "Animated rain particles, cloud layers, fog and flickering point lights create a storm."
+    },
+    "e6": {
+      "title": "Color nebula",
+      "description": "Colored lights illuminate rotating clouds, combined with bloom and a color-dodge starfield overlay."
+    },
+    "e7": {
+      "title": "Spiral galaxy",
+      "description": "One hundred thousand particles form spiral branches, blending from a warm center to blue edges."
+    },
+    "e8": {
+      "title": "Screen-space reflection",
+      "description": "Explore screen-space reflections beneath a model and geometric objects. Adjust reflections and automatic rotation below."
+    },
+    "e9": {
+      "title": "Dynamic reflections",
+      "description": "Alternating cube cameras let the sphere reflect moving geometry and the surrounding starfield in real time."
+    }
+  }
+},
   "scene": {"enable":"Enable animation", "disable":"Disable animation", "quality":"Animation", "auto":"Auto", "static":"Static", "low":"Low", "medium":"Medium", "high":"High"},
   "accessibility": {
     "skip": "Skip to content",

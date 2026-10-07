@@ -19,7 +19,7 @@ test('content, language persistence and responsive geometry across engines', asy
   await page.getByRole('link',{name:'Chronoscape',exact:true}).click();
   await expect(page).toHaveURL(/\/works\/gcs$/);
   await page.goBack();
-  await expect(page.locator('.project-card')).toHaveCount(8);
+  await expect(page.locator('.project-card')).toHaveCount(9);
   expect(errors).toEqual([]);
 });
 
@@ -31,7 +31,7 @@ test('static motion preference, keyboard navigation and image fallback', async (
   const works=page.getByRole('link',{name:'WORKS',exact:true});
   await works.focus();
   await page.keyboard.press('Enter');
-  const cover=page.locator('.s-cover').first();
+  const cover=page.locator('[data-entry-id="catnet"] .s-cover');
   await expect.poll(()=>cover.evaluate(el=>el.complete && el.naturalWidth>0)).toBe(true);
   await expect.poll(()=>cover.evaluate(el=>el.currentSrc)).toContain('.webp');
   await page.locator('picture source').evaluateAll(sources=>sources.forEach(source=>source.remove()));

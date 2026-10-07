@@ -384,5 +384,27 @@
         "bytes": 40900
       }
     ]
+  },
+  "image/ThreeLab-Cover.jpg": {
+    "width": 960,
+    "height": 960,
+    "originalBytes": 322423,
+    "variants": [
+      {
+        "width": 320,
+        "src": "image/optimized/ThreeLab-Cover-320.webp",
+        "bytes": 26660
+      },
+      {
+        "width": 640,
+        "src": "image/optimized/ThreeLab-Cover-640.webp",
+        "bytes": 109192
+      },
+      {
+        "width": 960,
+        "src": "image/optimized/ThreeLab-Cover-960.webp",
+        "bytes": 205500
+      }
+    ]
   }
 }

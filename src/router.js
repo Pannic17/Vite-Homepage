@@ -9,6 +9,7 @@ import {pagePaths} from './routePaths';
 import {detailEntries} from './content/portfolio';
 
 const routes = [
+  {path: '/works/three-lab/:experiment(0[1-9])?', name:'ThreeLab', component:()=>import('./views/ThreeLab.vue'), meta:{parent:'/works',titleKey:'lab.title'}},
   {path:pagePaths.home,name:'Home',component:Home},
   {path:pagePaths.about,name:'About',component:About,meta:{titleKey:'menu.about'}},
   {path:pagePaths.works,name:'Works',component:Works,meta:{titleKey:'menu.works'}},
