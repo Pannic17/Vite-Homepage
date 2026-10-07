@@ -216,7 +216,8 @@ export const portfolio = [
     ],
     "dateKey": "dates.january2024",
     "destination": {
-      "kind": "none"
+      "kind": "external",
+      "href": "https://github.com/Pannic17/Flutter-BilianAI"
     }
   },
   {
