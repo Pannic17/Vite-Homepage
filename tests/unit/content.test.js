@@ -32,6 +32,10 @@ test('catalog IDs, navigation, local assets and translations form a valid conten
       assert.equal(destination.kind,'internal');
       assert.equal(destination.to,entry.detail.path);
       for(const key of entry.detail.paragraphKeys) for(const messages of [en,cn]) assert.equal(typeof resolveKey(messages,key),'string');
+      for(const key of [entry.detail.heroKey, entry.detail.sectionTitleKey, ...entry.detail.headingKeys || [], ...entry.detail.links?.map(link => link.labelKey) || []].filter(Boolean)) {
+        for(const messages of [en,cn]) assert.equal(typeof resolveKey(messages,key),'string',key);
+      }
+      for(const link of entry.detail.links || []) assert.match(link.href,/^https:\/\//);
     }
   }
   assert.equal(detailEntries.find(entry => entry.id === 'chronoscape').detail.path,'/works/gcs');

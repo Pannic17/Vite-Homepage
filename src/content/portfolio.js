@@ -10,7 +10,7 @@
  * @property {Array<string|{key:string}>} tags Literal technical names or translation keys.
  * @property {string} dateKey
  * @property {Destination} destination Exactly one navigation behavior.
- * @property {{path:string,parent:string,paragraphKeys:string[],status:'pending'|'complete',links?:Array<{href:string,labelKey:string}>,video?:{embedUrl:string,href:string,titleKey:string}}} [detail]
+ * @property {{path:string,parent:string,paragraphKeys:string[],status:'pending'|'complete',heroKey?:string,sectionTitleKey?:string,headingKeys?:string[],links?:Array<{href:string,labelKey:string}>,video?:{embedUrl:string,href:string,titleKey:string}}} [detail]
  */
 
 /** @type {PortfolioEntry[]} */
@@ -36,6 +36,9 @@ export const portfolio = [
     "detail": {
       "path": "/works/catnet",
       "parent": "/works",
+      "heroKey": "catnet.hero",
+      "sectionTitleKey": "catnet.process",
+      "headingKeys": ["catnet.recognitionHeading", "catnet.experimentHeading"],
       "paragraphKeys": ["catnet.recognition", "catnet.experiment"],
       "status": "complete",
       "links": [
@@ -171,7 +174,7 @@ export const portfolio = [
     "collection": "works",
     "cover": "image/ABP-Cover.png",
     "titleKey": "title.ABP",
-    "introKey": null,
+    "introKey": "intro.ABP",
     "categoryKey": "tags.xr-game",
     "tags": [
       "Unreal 4",
@@ -182,7 +185,22 @@ export const portfolio = [
     ],
     "dateKey": "dates.march2023",
     "destination": {
-      "kind": "none"
+      "kind": "internal",
+      "to": "/works/anybody-problem"
+    },
+    "detail": {
+      "path": "/works/anybody-problem",
+      "parent": "/works",
+      "heroKey": "anybody.hero",
+      "sectionTitleKey": "anybody.process",
+      "headingKeys": ["anybody.unrealHeading", "anybody.detectionHeading", "anybody.unityHeading"],
+      "paragraphKeys": ["anybody.unreal", "anybody.detection", "anybody.unity"],
+      "status": "complete",
+      "links": [
+        {"href": "https://github.com/Pannic17/VAP-UE427", "labelKey": "anybody.unrealLink"},
+        {"href": "https://github.com/Pannic17/VAP-OpenCV-Detection", "labelKey": "anybody.detectionLink"},
+        {"href": "https://github.com/Pannic17/VAP-Unity", "labelKey": "anybody.unityLink"}
+      ]
     }
   },
   {

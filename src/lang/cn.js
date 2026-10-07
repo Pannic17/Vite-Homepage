@@ -64,6 +64,7 @@ export default {
     "TESTER": "AI 测试工具"
   },
   "intro": {
+    "ABP": "Anybody Problem 是围绕视觉检测与星球交互展开的实验性 XR 作品。项目以 Unreal Engine 4.27 构建场景与视觉效果，探索检测点驱动的星球位置、引力与粒子表现，并通过 Python / OpenCV 和 Unity 原型研究图像检测与游戏交互之间的联系。",
     "ZAR": "状元街区·微缩状元府 是一款微信AR小程序，基于微信xr-frame框架开发。用户通过扫描二维码，可以在对应的Marker上展示出生动的人物三维动画。该小程序作为景区的互动体验项目，旨在复原古代场景中传统中国人的生活。",
     "BLA": "比恋AI是一款面向中国AI用户的聊天APP，接入了ChatGPT以及文言一心接口，提供可以在中国大陆访问的AI入口。我负责该应用的移动端前端开发，前端基于Flutter框架，实现了iOS和Android端跨平台同步开发，使用响应式布局，同时使用了微信分享等相关接口。",
     "CCI": "这里展示了我在UAL CCI硕士一年期间所有的Coding作业。包括Coding 1中的JavaScript相关，Coding 2中OpenFramework以及Python相关，Coding 3中与神经网络相关的作业。",
@@ -76,6 +77,7 @@ export default {
     "C2F": "探索计算机对图片的理解、记忆与验证的生成艺术项目。我编写了 Python 脚本，使用 Stable Diffusion 根据哈希字符串生成图像，再将生成的图像用于替换输入图片中的人脸。脚本利用 OpenCV 检测人脸，通过二值掩码完成替换，并使用 OpenCV 计算输入图片的感知哈希。"
   },
   "catnet": {
+    "hero": "AI × AR",
     "overview": "项目概览",
     "process": "从现实图像到虚拟体验",
     "recognitionHeading": "识别与特征提取",
@@ -86,6 +88,19 @@ export default {
     "videoHelp": "如果播放器无法加载，可前往 bilibili 观看完整演示。",
     "recognition": "识别流程从摄像头或图像输入开始：OpenCV 使用 Haar 级联分类器检测猫脸，再裁剪并缩放为 224 × 224 的图像。Unity Barracuda 执行神经网络推理，输出毛色类别；OpenCV 的 K-means 聚类则用于提取图像的主要颜色，让现实图像成为游戏中的视觉数据。",
     "experiment": "这个项目围绕游戏引擎中的神经网络推理与 AR 交互展开实验，探索现实图像与虚拟角色之间的联系。GitHub 仓库公开了 Unity 脚本、场景和模型资源，并在 README 中提供 Windows 与 Android 版本的下载入口，源码采用 MIT 许可证。"
+  },
+  "anybody": {
+    "hero": "视觉 × 引力",
+    "process": "三个仓库，三个实验方向",
+    "unrealHeading": "场景与视觉表现",
+    "detectionHeading": "视觉检测实验",
+    "unityHeading": "星球交互原型",
+    "unrealLink": "UE4.27 主工程 · GitHub ↗",
+    "detectionLink": "OpenCV 检测实验 · GitHub ↗",
+    "unityLink": "Unity 交互原型 · GitHub ↗",
+    "unreal": "VAP-UE427 是项目主工程。C++ 与蓝图中的检测点处理涉及摄像头坐标映射、相对位置和引力方向计算；场景、材质与 Niagara 资源用于探索星球和粒子的视觉表现。",
+    "detection": "VAP-OpenCV-Detection 使用 Python 和 OpenCV，包含摄像头预览、静态图像检测，以及手部、手掌、拳头和人脸的 Haar 级联分类器。它用于研究视觉输入中的检测位置与范围，为交互实验提供参考。",
+    "unity": "VAP-Unity 记录摄像头控制、图像处理及星球引力与粒子效果的 C# 原型。三个仓库独立维护，部分功能仍处于实验阶段；目前公开代码未提供统一通信接口，保留了不同技术方向的探索过程。"
   },
   "pages": {
     "worksSubtitle": "{name} 的艺术作品",

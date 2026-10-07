@@ -64,6 +64,7 @@ export default {
     "TESTER": "AI Tester"
   },
   "intro": {
+    "ABP": "Anybody Problem is an experimental XR work exploring visual detection and planetary interaction. Built around Unreal Engine 4.27 scenes and visual effects, it investigates detection points as inputs for planetary positions, gravity and particles, alongside Python / OpenCV experiments and Unity prototypes connecting image detection with game interaction.",
     "ZAR": "\"Zhuangyuan Jiequ - Miniature Mansion\" is a WeChat AR mini-program developed based on the WeChat XR-Frame framework. Users can scan the QR code to display vivid 3D animations of characters on corresponding markers. This mini-program serves as an interactive experience project for scenic spots, aiming to recreate the traditional life of ancient Chinese people in historical settings.",
     "BLA": "\"Bilian AI\" is a chat app targeted at Chinese AI users. It integrates ChatGPT and WenyanYixin interfaces, providing an AI entrance accessible in mainland China. I am responsible for the mobile frontend development of this application. The frontend is built on the Flutter framework, enabling cross-platform synchronous development for iOS and Android. It utilizes responsive layout and integrates related interfaces such as WeChat sharing.",
     "CCI": "Here is a showcase of all my coding assignments during the one-year UAL CCI master's program: This includes JavaScript-related assignments from Coding 1, OpenFrameworks and Python-related tasks from Coding 2, and assignments related to neural networks from Coding 3.",
@@ -76,6 +77,7 @@ export default {
     "C2F": "Generative art exploring a computer's understanding, memory and validation of your picture. For this project, I created a Python script that uses a Stable Diffusion model to generate an image from a hash string. I then used the generated image to replace a face in an input image. The script uses OpenCV to detect faces, a binary mask to replace the face with the generated image, and OpenCV to compute the perceptual hash of the input image."
   },
   "catnet": {
+    "hero": "AI × AR",
     "overview": "PROJECT OVERVIEW",
     "process": "From real images to virtual experiences",
     "recognitionHeading": "Recognition & feature extraction",
@@ -86,6 +88,19 @@ export default {
     "videoHelp": "If the player cannot load, watch the full demo on bilibili.",
     "recognition": "The recognition pipeline starts with a camera image or image file. OpenCV detects cat faces with a Haar cascade, then crops and resizes the face to 224 × 224 pixels. Unity Barracuda runs neural network inference to classify the coat pattern, while OpenCV K-means clustering extracts the main image colors, turning a real image into visual data for the game.",
     "experiment": "The project experiments with neural network inference inside a game engine and AR interaction, exploring connections between real images and virtual characters. The GitHub repository includes Unity scripts, scenes and model assets. Its README links to Windows and Android downloads, and the source is released under the MIT license."
+  },
+  "anybody": {
+    "hero": "Vision × Gravity",
+    "process": "Three repositories, three areas of exploration",
+    "unrealHeading": "Scenes & visual effects",
+    "detectionHeading": "Visual detection experiments",
+    "unityHeading": "Planetary interaction prototypes",
+    "unrealLink": "UE4.27 main project · GitHub ↗",
+    "detectionLink": "OpenCV detection experiments · GitHub ↗",
+    "unityLink": "Unity interaction prototypes · GitHub ↗",
+    "unreal": "VAP-UE427 is the main project. Its C++ and Blueprint detection-point processing covers camera coordinate mapping, relative positions and gravity directions. Scenes, materials and Niagara assets explore planetary and particle visuals.",
+    "detection": "VAP-OpenCV-Detection uses Python and OpenCV for camera preview and static image detection, with Haar cascade classifiers for hands, palms, fists and faces. It explores detection positions and regions in visual input as a reference for interaction experiments.",
+    "unity": "VAP-Unity contains C# prototypes for camera control, image processing, planetary gravity and particle effects. The three repositories are maintained independently, with some features still experimental. The public code does not provide a shared communication interface, preserving explorations across different technical approaches."
   },
   "pages": {
     "worksSubtitle": "Artworks by {name}",
