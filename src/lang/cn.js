@@ -68,12 +68,24 @@ export default {
     "BLA": "比恋AI是一款面向中国AI用户的聊天APP，接入了ChatGPT以及文言一心接口，提供可以在中国大陆访问的AI入口。我负责该应用的移动端前端开发，前端基于Flutter框架，实现了iOS和Android端跨平台同步开发，使用响应式布局，同时使用了微信分享等相关接口。",
     "CCI": "这里展示了我在UAL CCI硕士一年期间所有的Coding作业。包括Coding 1中的JavaScript相关，Coding 2中OpenFramework以及Python相关，Coding 3中与神经网络相关的作业。",
     "HPG": "由Vue3+Vite构建，响应式布局，组件化开发。使用Three.js搭建三维模型，i18n搭建语言国际化。",
-    "CAT": "CatNet是一款结合了神经网路的AR游戏。该游戏由Unity开发，利用Unity Barracuda插件将轻量级神经网络部署到移动端游戏中，实现通过手机摄像头利用神经网络对现实生物进行识别分类和特征提取，并利用获得的数据程序化生成相应的3D模型。通过该项目对未来可能的AR游戏方向进行实验性的探索，研究通过主流游戏引擎将轻量化模型部署在移动端的可能性。",
+    "CAT": "CatNet 是一款基于 Unity 的实验性 AR 游戏，将人工智能与增强现实结合。项目利用 OpenCV 检测猫脸，通过 Unity Barracuda 运行神经网络，对猫的毛色类型进行分类并提取图像主色，探索将现实中的猫转化为虚拟游戏体验的可能性。",
     "GCS": "Chronoscape时空景观 是一款基于UE5引擎开发的XR交互游戏装置。在这个作品中，通过游戏体验，将人类的存在延伸到虚拟的数字世界。我们的目标是设计一个沉浸式的游乐空间，以此放大和纪念个人在世间所产生的影响。作品由Unreal开发，通过OpenCV和实验性的神经网络模块将自己训练的YOLO网络部署在游戏中，利用置于顶部的摄像机画面实时追踪场景中人踪迹并反馈到游戏场景中。",
     "OGX": "利用棱镜、摄像机和投影仪，通过捕捉现实世界的图像创建虚拟世界。",
     "C1F": "一款基于 Three.js 和 WebGL 开发的 Web 音乐小游戏。",
     "C3F": "利用 AI 理解中国古代诗歌并重构绘画的实验。",
     "C2F": "探索计算机对图片的理解、记忆与验证的生成艺术项目。我编写了 Python 脚本，使用 Stable Diffusion 根据哈希字符串生成图像，再将生成的图像用于替换输入图片中的人脸。脚本利用 OpenCV 检测人脸，通过二值掩码完成替换，并使用 OpenCV 计算输入图片的感知哈希。"
+  },
+  "catnet": {
+    "overview": "项目概览",
+    "process": "从现实图像到虚拟体验",
+    "recognitionHeading": "识别与特征提取",
+    "experimentHeading": "实验与开源",
+    "github": "在 GitHub 查看源码 ↗",
+    "demo": "CatNet 演示视频",
+    "watch": "在 bilibili 观看 ↗",
+    "videoHelp": "如果播放器无法加载，可前往 bilibili 观看完整演示。",
+    "recognition": "识别流程从摄像头或图像输入开始：OpenCV 使用 Haar 级联分类器检测猫脸，再裁剪并缩放为 224 × 224 的图像。Unity Barracuda 执行神经网络推理，输出毛色类别；OpenCV 的 K-means 聚类则用于提取图像的主要颜色，让现实图像成为游戏中的视觉数据。",
+    "experiment": "这个项目围绕游戏引擎中的神经网络推理与 AR 交互展开实验，探索现实图像与虚拟角色之间的联系。GitHub 仓库公开了 Unity 脚本、场景和模型资源，并在 README 中提供 Windows 与 Android 版本的下载入口，源码采用 MIT 许可证。"
   },
   "pages": {
     "worksSubtitle": "{name} 的艺术作品",

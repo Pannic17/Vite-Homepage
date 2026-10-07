@@ -34,7 +34,7 @@ test('catalog IDs, navigation, local assets and translations form a valid conten
       for(const key of entry.detail.paragraphKeys) for(const messages of [en,cn]) assert.equal(typeof resolveKey(messages,key),'string');
     }
   }
-  assert.equal(detailEntries[0].detail.path,'/works/gcs');
+  assert.equal(detailEntries.find(entry => entry.id === 'chronoscape').detail.path,'/works/gcs');
   assert.deepEqual(flatten(en).sort(),flatten(cn).sort(),'Both languages must expose the same keys');
   for(const poster of kaiwu.posters) assert.ok(existsSync('public/' + poster.src));
 });

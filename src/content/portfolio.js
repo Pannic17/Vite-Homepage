@@ -10,7 +10,7 @@
  * @property {Array<string|{key:string}>} tags Literal technical names or translation keys.
  * @property {string} dateKey
  * @property {Destination} destination Exactly one navigation behavior.
- * @property {{path:string,parent:string,paragraphKeys:string[],status:'pending'|'complete'}} [detail]
+ * @property {{path:string,parent:string,paragraphKeys:string[],status:'pending'|'complete',links?:Array<{href:string,labelKey:string}>,video?:{embedUrl:string,href:string,titleKey:string}}} [detail]
  */
 
 /** @type {PortfolioEntry[]} */
@@ -30,7 +30,22 @@ export const portfolio = [
     ],
     "dateKey": "dates.2021",
     "destination": {
-      "kind": "none"
+      "kind": "internal",
+      "to": "/works/catnet"
+    },
+    "detail": {
+      "path": "/works/catnet",
+      "parent": "/works",
+      "paragraphKeys": ["catnet.recognition", "catnet.experiment"],
+      "status": "complete",
+      "links": [
+        {"href": "https://github.com/Pannic17/CatNet-Unity", "labelKey": "catnet.github"}
+      ],
+      "video": {
+        "embedUrl": "https://player.bilibili.com/player.html?bvid=BV1434y1R7Yw&page=1&autoplay=0",
+        "href": "https://www.bilibili.com/video/BV1434y1R7Yw/",
+        "titleKey": "catnet.demo"
+      }
     }
   },
   {

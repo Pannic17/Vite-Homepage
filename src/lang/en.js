@@ -68,12 +68,24 @@ export default {
     "BLA": "\"Bilian AI\" is a chat app targeted at Chinese AI users. It integrates ChatGPT and WenyanYixin interfaces, providing an AI entrance accessible in mainland China. I am responsible for the mobile frontend development of this application. The frontend is built on the Flutter framework, enabling cross-platform synchronous development for iOS and Android. It utilizes responsive layout and integrates related interfaces such as WeChat sharing.",
     "CCI": "Here is a showcase of all my coding assignments during the one-year UAL CCI master's program: This includes JavaScript-related assignments from Coding 1, OpenFrameworks and Python-related tasks from Coding 2, and assignments related to neural networks from Coding 3.",
     "HPG": "Built with Vue3+Vite, featuring responsive layout and component-based development. Utilizes Three.js for constructing 3D models and i18n for implementing internationalization of languages.",
-    "CAT": "CatNet is an AR game that incorporates neural networks. The game is developed using Unity, utilizing the Unity Barracuda plugin to deploy lightweight neural networks to mobile games. It enables real-time recognition, classification, and feature extraction of real-life organisms using the smartphone camera through neural networks. The obtained data is then used to programmatically generate corresponding 3D models. This project serves as an experimental exploration of potential directions for future AR games. It investigates the possibility of deploying lightweight models on mobile devices through mainstream game engines.",
+    "CAT": "CatNet is an experimental AR game built with Unity, combining artificial intelligence with augmented reality. It uses OpenCV to detect cat faces and Unity Barracuda to run a neural network for coat classification, alongside image color extraction, exploring how real cats can inform a virtual game experience.",
     "GCS": "Chronoscape is an XR interactive game installation developed using the UE5 engine. In this project, human existence is extended into a virtual digital world through gaming experiences. Our goal is to design an immersive playground space that amplifies and commemorates the impact individuals have on the world. The project is developed using Unreal Engine and incorporates a self-trained YOLO network deployed in the game through OpenCV and experimental neural network modules. A camera positioned at the top tracks human traces in real-time within the scene and feeds back into the game environment.",
     "OGX": "Using prisms, cameras and projectors to capture images of the physical world and create a virtual world.",
     "C1F": "A web music game developed with Three.js and WebGL.",
     "C3F": "An experiment using AI to understand ancient Chinese poetry and reconstruct paintings.",
     "C2F": "Generative art exploring a computer's understanding, memory and validation of your picture. For this project, I created a Python script that uses a Stable Diffusion model to generate an image from a hash string. I then used the generated image to replace a face in an input image. The script uses OpenCV to detect faces, a binary mask to replace the face with the generated image, and OpenCV to compute the perceptual hash of the input image."
+  },
+  "catnet": {
+    "overview": "PROJECT OVERVIEW",
+    "process": "From real images to virtual experiences",
+    "recognitionHeading": "Recognition & feature extraction",
+    "experimentHeading": "Experiment & open source",
+    "github": "View source on GitHub ↗",
+    "demo": "CatNet demo video",
+    "watch": "Watch on bilibili ↗",
+    "videoHelp": "If the player cannot load, watch the full demo on bilibili.",
+    "recognition": "The recognition pipeline starts with a camera image or image file. OpenCV detects cat faces with a Haar cascade, then crops and resizes the face to 224 × 224 pixels. Unity Barracuda runs neural network inference to classify the coat pattern, while OpenCV K-means clustering extracts the main image colors, turning a real image into visual data for the game.",
+    "experiment": "The project experiments with neural network inference inside a game engine and AR interaction, exploring connections between real images and virtual characters. The GitHub repository includes Unity scripts, scenes and model assets. Its README links to Windows and Android downloads, and the source is released under the MIT license."
   },
   "pages": {
     "worksSubtitle": "Artworks by {name}",

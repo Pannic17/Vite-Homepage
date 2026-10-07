@@ -63,8 +63,7 @@ test('internal navigation creates exactly one history entry and external links o
   expect(await page.evaluate(() => history.length)).toBe(before + 1);
   await page.goBack();
   await expect(page).toHaveURL(/\/works$/);
-  await expect(page.locator('[data-entry-id="catnet"] a')).toHaveCount(0);
-  await expect(page.locator('[data-entry-id="catnet"]')).toContainText('Details pending');
+  await expect(page.locator('[data-entry-id="catnet"] a')).toHaveAttribute('href',/\/works\/catnet$/);
   await context.route('https://pannic17.github.io/C1-Final/**',route => route.fulfill({body:'External test destination',contentType:'text/html'}));
   const popups=[];
   page.on('popup',popup => popups.push(popup));
@@ -98,7 +97,7 @@ test('all content loads in both languages without missing translation warnings',
   await page.goto('./');
   for(const locale of ['zh-CN','en-US']) {
     await page.evaluate(value => localStorage.setItem('locale',value),locale);
-    for(const route of ['about','works','projects','works/gcs']) {
+    for(const route of ['about','works','projects','works/gcs','works/catnet']) {
       await page.goto(route);
       await expect(page.locator('html')).toHaveAttribute('lang',locale);
       await page.locator('img').evaluateAll(images => images.forEach(image => { image.loading = 'eager'; }));
