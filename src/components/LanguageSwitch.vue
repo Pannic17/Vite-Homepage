@@ -7,6 +7,8 @@ const {locale} = useI18n({useScope: 'global'});
     <button type="button" lang="zh-CN" aria-label="中文" :aria-pressed="locale === 'zh-CN'" @click="locale = 'zh-CN'"><span class="language-full">中文</span><span class="language-short" aria-hidden="true">中</span></button>
     <span aria-hidden="true">/</span>
     <button type="button" lang="en" aria-label="ENGLISH" :aria-pressed="locale === 'en-US'" @click="locale = 'en-US'"><span class="language-full">ENGLISH</span><span class="language-short" aria-hidden="true">EN</span></button>
+    <span aria-hidden="true">/</span>
+    <button type="button" lang="es" aria-label="ESPAÑOL" :aria-pressed="locale === 'es-ES'" @click="locale = 'es-ES'"><span class="language-full">ESPAÑOL</span><span class="language-short" aria-hidden="true">ES</span></button>
   </div>
 </template>
 <style scoped>

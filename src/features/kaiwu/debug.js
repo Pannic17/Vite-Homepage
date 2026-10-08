@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import {GUI} from 'three/examples/jsm/libs/lil-gui.module.min.js';
 import {disposeObject3D} from '../../three/dispose';
+import {localizeGui} from '../../utils/localizeGui.js';
 
 // Only instantiated for debug=1. All controls operate on this viewer's resources.
 export function createDebug({container,renderer,scene,camera,controls,ambient,object,environment,mappings,playback,setPlaying,schedule}) {
@@ -84,6 +85,7 @@ export function createDebug({container,renderer,scene,camera,controls,ambient,ob
   const axes=new THREE.AxesHelper(5),grid=new THREE.GridHelper(20,20);
   axes.visible=false;grid.visible=false;scene.add(axes,grid);
   helpers.add(axes,'visible').name('Axes');helpers.add(grid,'visible').name('Grid');
+  localizeGui(gui);
   gui.open();
   return {dispose(){gui.destroy();scene.remove(axes,grid);disposeObject3D(axes);disposeObject3D(grid);}};
 }

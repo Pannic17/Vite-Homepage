@@ -5,6 +5,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GUI } from 'three/examples/jsm/libs/lil-gui.module.min.js';
 import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer.js';
 import { SSRPass } from 'three/examples/jsm/postprocessing/SSRPass.js';
+import {localizeGui} from '../../../utils/localizeGui.js';
 import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass.js';
 import { GammaCorrectionShader } from 'three/examples/jsm/shaders/GammaCorrectionShader.js';
 import { ReflectorForSSRPass } from 'three/examples/jsm/objects/ReflectorForSSRPass.js';
@@ -221,6 +222,7 @@ function init() {
 
     } );
     folder.add( ssrPass, 'blur' );
+    localizeGui(gui);
     // folder.open()
     // gui.close()
 

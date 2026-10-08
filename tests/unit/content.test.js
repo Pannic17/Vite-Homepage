@@ -5,8 +5,9 @@ import {createI18n} from 'vue-i18n';
 import {portfolio, works, projects, kaiwu, detailEntries} from '../../src/content/portfolio.js';
 import {profile} from '../../src/content/profile.js';
 import {productionPaths} from '../../src/routePaths.js';
-import en from '../../src/lang/en.js';
-import cn from '../../src/lang/cn.js';
+import {messages} from '../../src/lang/messages.js';
+import {supportedLocales} from '../../src/utils/locale.js';
+const en = messages['en-US'], cn = messages['zh-CN'];
 
 const resolveKey = (messages,key) => key.split('.').reduce((value,part) => value?.[part],messages);
 const flatten = (object,prefix='') => Object.entries(object).flatMap(([key,value]) => typeof value === 'object' ? flatten(value,prefix + key + '.') : [prefix + key]);
@@ -20,7 +21,7 @@ test('catalog IDs, navigation, local assets and translations form a valid conten
     assert.match(entry.id,/^[a-z0-9-]+$/);
     assert.ok(existsSync('public/' + entry.cover),entry.cover);
     for(const key of [entry.titleKey,entry.introKey,entry.categoryKey,entry.dateKey,...entry.tags.filter(tag => typeof tag === 'object').map(tag => tag.key)].filter(Boolean)) {
-      for(const messages of [en,cn]) assert.equal(typeof resolveKey(messages,key),'string',key);
+      for(const copy of Object.values(messages)) assert.equal(typeof resolveKey(copy,key),'string',key);
     }
     const destination=entry.destination;
     assert.ok(['internal','external','none'].includes(destination.kind));
@@ -31,9 +32,9 @@ test('catalog IDs, navigation, local assets and translations form a valid conten
       assert.ok(productionPaths.includes(entry.detail.parent));
       assert.equal(destination.kind,'internal');
       assert.equal(destination.to,entry.detail.path);
-      for(const key of entry.detail.paragraphKeys) for(const messages of [en,cn]) assert.equal(typeof resolveKey(messages,key),'string');
+      for(const key of entry.detail.paragraphKeys) for(const copy of Object.values(messages)) assert.equal(typeof resolveKey(copy,key),'string');
       for(const key of [entry.detail.heroKey, entry.detail.sectionTitleKey, ...entry.detail.headingKeys || [], ...entry.detail.links?.map(link => link.labelKey) || []].filter(Boolean)) {
-        for(const messages of [en,cn]) assert.equal(typeof resolveKey(messages,key),'string',key);
+        for(const copy of Object.values(messages)) assert.equal(typeof resolveKey(copy,key),'string',key);
       }
       for(const link of entry.detail.links || []) assert.match(link.href,/^https:\/\//);
     }
@@ -41,6 +42,25 @@ test('catalog IDs, navigation, local assets and translations form a valid conten
   assert.equal(detailEntries.find(entry => entry.id === 'chronoscape').detail.path,'/works/gcs');
   assert.deepEqual(flatten(en).sort(),flatten(cn).sort(),'Both languages must expose the same keys');
   for(const poster of kaiwu.posters) assert.ok(existsSync('public/' + poster.src));
+});
+
+test('every supported locale has complete copy and matching interpolation parameters', () => {
+  assert.deepEqual(Object.keys(messages).sort(), [...supportedLocales].sort());
+  const keys = flatten(en).sort();
+  const parameters = text => [...text.matchAll(/\{(\w+)\}/g)].map(match => match[1]).sort();
+  for (const locale of supportedLocales) {
+    assert.deepEqual(flatten(messages[locale]).sort(), keys, locale);
+    const translator = createI18n({legacy: false, locale, fallbackLocale: false, messages});
+    for (const key of keys) {
+      const text = resolveKey(messages[locale], key);
+      assert.equal(typeof text, 'string', locale + ': ' + key);
+      assert.ok(text.trim(), locale + ': ' + key);
+      assert.deepEqual(parameters(text), parameters(resolveKey(en, key)), locale + ': ' + key);
+      const args = Object.fromEntries(parameters(text).map(name => [name, 'Example']));
+      assert.notEqual(translator.global.t(key, args), key, locale + ': ' + key);
+    }
+    translator.dispose();
+  }
 });
 
 test('baseline external destinations survive except the retired Kaiwu domain', () => {

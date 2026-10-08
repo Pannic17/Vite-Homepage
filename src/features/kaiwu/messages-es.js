@@ -1,0 +1,20 @@
+export const es = {
+  title: 'Kaiwu 3D', intro: 'Explora el ejemplo o abre tu propia configuración de modelo.', example: 'Ver ejemplo',
+  model: 'URL del modelo', remote: 'URL de la configuración', local: 'Configuración JSON local', open: 'Abrir visor',
+  projects: 'Volver a Proyectos', home: 'Inicio', loading: 'Cargando el modelo…',
+  failed: 'No se pudo cargar. Comprueba la URL, el JSON y el acceso a los recursos. Todavía no se admiten la rotación HDR distinta de cero ni el posprocesamiento avanzado.',
+  retry: 'Reintentar', play: 'Reproducir', pause: 'Pausar', reset: 'Restablecer', configure: 'Configuración del modelo',
+  hint: 'El renderizado básico está disponible. La rotación HDR y el posprocesamiento avanzado están en proceso de migración.',
+  errors: {
+    url: 'Introduce una URL válida de recurso HTTP o HTTPS.',
+    config: 'La configuración o los parámetros del visor no son válidos. Revisa los campos e inténtalo de nuevo.',
+    json: 'Este archivo no contiene JSON válido. Corrígelo y vuelve a seleccionarlo.',
+    network: 'No se pudo descargar la configuración. Comprueba la conexión, la URL y el acceso entre orígenes (CORS), e inténtalo de nuevo.',
+    local: 'Falta la configuración local. Vuelve a Configuración del modelo y selecciona el archivo de nuevo.',
+    storage: 'El almacenamiento del navegador no está disponible. Permite el almacenamiento de sesión o utiliza una URL de configuración.',
+    effects: 'Esta configuración activa la rotación HDR o el posprocesamiento avanzado, que todavía no se admiten. Utiliza el ejemplo o desactiva estas opciones.',
+    timeout: 'Se agotó el tiempo de carga. Comprueba la conexión y el tamaño de los recursos, e inténtalo de nuevo.',
+    resource: 'No se pudo cargar el modelo o el entorno. Comprueba las URL, el formato y el acceso entre orígenes (CORS), e inténtalo de nuevo.',
+    webgl: 'El renderizado 3D no está disponible o se ha perdido el contexto gráfico. Inténtalo de nuevo o vuelve a la configuración del modelo.',
+  },
+};

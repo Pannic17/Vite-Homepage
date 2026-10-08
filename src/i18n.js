@@ -1,16 +1,14 @@
 import {createI18n} from 'vue-i18n';
 import {watch} from 'vue';
-import en from './lang/en';
-import cn from './lang/cn';
-import {en as kaiwuEn,cn as kaiwuCn} from './features/kaiwu/messages';
-import {initialLocale, isSupportedLocale, persistLocale} from './utils/locale';
+import {messages} from './lang/messages.js';
+import {initialLocale, isSupportedLocale, persistLocale} from './utils/locale.js';
 
 const storage = () => window.localStorage;
 const i18n = createI18n({
   legacy: false,
   locale: initialLocale(navigator.language, storage),
   fallbackLocale: 'en-US',
-  messages: {'en-US': {...en,kaiwuViewer:kaiwuEn}, 'zh-CN': {...cn,kaiwuViewer:kaiwuCn}},
+  messages,
 });
 
 // One state source drives the switch, document metadata and persistence.
